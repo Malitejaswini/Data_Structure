@@ -1,33 +1,34 @@
+//Demonstration of stack.
 #include<iostream.h>
 #include<conio.h>
 int stack[5];
 int top=-1;
 void push()
 {
-int x;
-cout<<"Enter value:- "<<endl;
-cin>>x;
+int data;
+cout<<"Enter the data element:- "<<endl;
+cin>>data;
 if(top==5-1)
 {
-cout<<"overflow"<<endl;
+cout<<"Stack is overflow.."<<endl;
 }
 else
 {
 top++;
-stack[top]=x;
+stack[top]=data;
 }
 }
 void pop()
 {
-int data;
+int item;
 if(top==-1)
 {
-cout<<"Under flow"<<endl;
+cout<<"Stack is underflow.."<<endl;
 }
 else
 {
-data=stack[top];
-cout<<data<<endl;
+item=stack[top];
+cout<<item<<endl;
 top--;
 }
 }
@@ -35,7 +36,7 @@ void peek()
 {
 if(top==-1)
 {
-cout<<"Stack is empty"<<endl;
+cout<<"Stack is empty.."<<endl;
 }
 else
 {
@@ -45,9 +46,17 @@ cout<<stack[top]<<endl;
 void display()
 {
 int i;
-for(i=top;i>=0;i--)
+if(top==-1)
 {
-cout<<"Value in stack is:-"<<stack[i]<<endl;
+cout<<"Stack is empty.."<<endl;
+}
+else
+{
+cout<<"Stack elements:- "<<endl;
+for(i=0;i<5;i++)
+{
+cout<<stack[i]<<endl;
+}
 }
 }
 void main()
@@ -55,22 +64,23 @@ void main()
 int ch;
 do
 {
-cout<<"Enter choice:- 1:push,2:pop,3:peek,4:display"<<endl ;
-   cin>>ch;
-   switch(ch)
-   {
-   case 1:push();
-   break;
-   case 2:pop();
-   break;
-   case 3:peek();
-   break;
-   case 4:display();
-   break;
-   default:
-   cout<<"Invalid choice"<<endl;
-   }
-   }
-   while(ch!=0);
-   }
-
+cout<<"Enter your choice:- 1-push, 2-pop, 3-peek, 4-display"<<endl;
+cin>>ch;
+switch(ch)
+{
+case 1:push();
+break;
+case 2:pop();
+break;
+case 3:peek();
+break;
+case 4:display();
+break;
+default:
+cout<<"Invalid"<<endl;
+}
+}
+while(ch!=0);
+getch();
+clrscr();
+}
